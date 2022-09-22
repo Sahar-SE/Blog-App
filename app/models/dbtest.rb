@@ -1,0 +1,2 @@
+class Dbtest < ApplicationRecord
+end
