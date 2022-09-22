@@ -1,2 +1,2 @@
-class Comment < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class Comment < ApplicationRecord
 end

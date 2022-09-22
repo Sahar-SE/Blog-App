@@ -1,2 +1,2 @@
-class Like < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class Like < ApplicationRecord
 end

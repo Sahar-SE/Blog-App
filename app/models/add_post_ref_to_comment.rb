@@ -1,3 +1,3 @@
-class AddPostRefToComment < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class AddPostRefToComment < ApplicationRecord
   belongs_to :post
 end

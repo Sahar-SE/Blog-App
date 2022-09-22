@@ -1,2 +1,2 @@
-class Dbtest < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class Dbtest < ApplicationRecord
 end

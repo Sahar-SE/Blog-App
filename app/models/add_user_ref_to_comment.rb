@@ -1,3 +1,3 @@
-class AddUserRefToComment < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class AddUserRefToComment < ApplicationRecord
   belongs_to :user
 end

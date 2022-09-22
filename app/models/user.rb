@@ -1,2 +1,2 @@
-class User < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class User < ApplicationRecord
 end

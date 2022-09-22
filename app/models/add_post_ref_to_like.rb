@@ -1,3 +1,3 @@
-class AddPostRefToLike < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class AddPostRefToLike < ApplicationRecord
   belongs_to :post
 end

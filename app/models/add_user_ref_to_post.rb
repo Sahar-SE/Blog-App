@@ -1,3 +1,3 @@
-class AddUserRefToPost < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class AddUserRefToPost < ApplicationRecord
   belongs_to :user
 end

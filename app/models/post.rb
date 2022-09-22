@@ -1,2 +1,2 @@
-class Post < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class Post < ApplicationRecord
 end

@@ -1,3 +1,3 @@
-class AddUserRefToLike < ApplicationRecord # rubocop:todo Layout/EndOfLine
+class AddUserRefToLike < ApplicationRecord
   belongs_to :user
 end
