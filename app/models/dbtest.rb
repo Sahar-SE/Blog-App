@@ -1,2 +1,0 @@
-class Dbtest < ApplicationRecord
-end
