@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LikeTest < ActiveSupport::TestCase
+class AddUserRefToPostTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
