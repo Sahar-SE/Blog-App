@@ -14,6 +14,41 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_22_131731) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "add_post_ref_to_comments", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_add_post_ref_to_comments_on_post_id"
+  end
+
+  create_table "add_post_ref_to_likes", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_add_post_ref_to_likes_on_post_id"
+  end
+
+  create_table "add_user_ref_to_comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_add_user_ref_to_comments_on_user_id"
+  end
+
+  create_table "add_user_ref_to_likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_add_user_ref_to_likes_on_user_id"
+  end
+
+  create_table "add_user_ref_to_posts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_add_user_ref_to_posts_on_user_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "authorId"
     t.integer "postId"
@@ -33,8 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_22_131731) do
     t.integer "authorId"
     t.string "title"
     t.string "text"
-    t.integer "comments_counter"
-    t.integer "likes_counter"
+    t.integer "commentsCounter"
+    t.integer "likesCounter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_22_131731) do
     t.string "name"
     t.string "photo"
     t.text "bio"
-    t.integer "posts_counter"
+    t.integer "postsCounter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
