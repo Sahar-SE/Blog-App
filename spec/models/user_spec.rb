@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'is valid with a name' do
-      first_user.name = 'Mavericks'
+      first_user.name = 'Sahar'
       expect(first_user).to be_valid
     end
 
