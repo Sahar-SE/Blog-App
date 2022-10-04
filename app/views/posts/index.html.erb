@@ -1,5 +1,10 @@
 <div>
   <%= render 'users/user_card'%>
+
+  <div>
+    <%= link_to 'Add a new post', new_user_post_path %>
+  </div>
+
   <% @posts.each do |post| %>
     <div class='post-card'>
       <h3><%=link_to post.title, user_post_path(@user.id, post), :class => 'post-title'%></h3>
@@ -10,7 +15,7 @@
       </div>
     </div>
     <div class='comments_cnt'>
-      <% post.recent_comments.each do |comment| %>
+      <% post.recent_5_comments.each do |comment| %>
         <p><%= User.find(comment.authorId).name %>: <%= comment.text %></p>
       <% end %>
     </div>
