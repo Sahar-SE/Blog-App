@@ -1,35 +1,26 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request do
-  describe 'GET /show' do
-    before(:example) { get '/users/:authorId/posts/:id' }
+RSpec.describe PostsController, type: :controller do
+  before(:all) do
+    @user = User.create(
+    name: 'Tom',
+    photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+    bio: 'Teacher from Mexico.'
+    )
+    @post = Post.create(user: @user, title: 'title', text: 'text')
+  end
 
-    it 'returns correct response status' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'renders correct template' do
-      expect(response).to render_template(:show)
-    end
-
-    it 'returns correct response body' do
-      expect(response.body).to include('Post of the user')
+  describe 'GET index' do
+    it 'renders index' do
+      get :index, params: { user_id: @user.id }
+      expect(response.status).to eq(200)
+      expect(response).to render_template('index')
     end
   end
 
-  describe 'GET /index' do
-    before(:example) { get '/users/:authorId/posts' }
-
-    it 'returns correct response status' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'renders correct template' do
-      expect(response).to render_template(:index)
-    end
-
-    it 'returns correct response body' do
-      expect(response.body).to include('List of all posts')
-    end
-  end
+  # describe 'GET show' do
+  #   get :show, params: { id: @posts, user_id: @user }
+  #   expect(response.status).to eq(200)
+  #   expect(response).to render_template('show')
+  # end
 end

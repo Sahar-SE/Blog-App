@@ -1,6 +1,6 @@
 <div class='post-card'>
   <div class='post-header'>
-    <h3>"<%= @post.title %>" by: <%= User.find(@post.authorId).name %></h3>
+    <h3>"<%= @post.title %>" by: <%= @post.user.name %></h3>
     <div class='likes-comments'>
       <p>Comments: <%= @post.commentsCounter.nil? ? 0 : @post.commentsCounter %></p>
       <p>Likes: <%= @post.likesCounter.nil? ? 0 : @post.likesCounter %></p>
@@ -10,10 +10,9 @@
 </div>
 <div class="buttons">
   <%= link_to 'Add a new comment', new_user_post_comment_path(@user, @post) %>
-  <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
-</div>
+  <%= button_to 'Like', user_post_likes_path(@user, @post) %>
 <div class='comments_cnt'>
   <% @post.comments.each do |comment| %>
-    <p><%= User.find(comment.authorId).name %>: <%= comment.text %></p>
+    <p><%= comment.user.name %>: <%= comment.text %></p>
   <% end %>
 </div>

@@ -1,35 +1,27 @@
-equire 'rails_helper'
+require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
-  describe 'GET /show' do
-    before(:example) { get '/users/:id' }
+RSpec.describe UsersController, type: :controller do
+  before(:each) do
+    @user = User.create(
+    name: 'Tom',
+    photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+    bio: 'Teacher from Mexico.'
+    )
+  end
 
-    it 'returns correct response status' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'renders correct template' do
-      expect(response).to render_template(:show)
-    end
-
-    it 'returns correct response body' do
-      expect(response.body).to include('Details of the user')
+  describe 'GET index' do
+    it 'renders index' do
+      get :index
+      expect(response.status).to eq(200)
+      expect(response).to render_template('index')
     end
   end
 
-  describe 'GET /index' do
-    before(:example) { get '/users' }
-
-    it 'returns correct response status' do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it 'renders correct template' do
-      expect(response).to render_template(:index)
-    end
-
-    it 'returns correct response body' do
-      expect(response.body).to include('List of all users')
+  describe 'GET show' do
+    it 'renders the show template' do
+      get :show, params: { id: @user.id }
+      expect(response.status).to eq(200)
+      expect(response).to render_template('show')
     end
   end
 end
