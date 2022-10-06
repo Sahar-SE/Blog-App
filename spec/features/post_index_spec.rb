@@ -2,10 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'post_index', type: :feature do
   user = User.find_by(name: 'Jane')
-    post = user.posts.first
+  post = user.posts.first
 
   before(:each) do
-    
     visit user_posts_path(User.find_by(name: 'Jane').id)
   end
 

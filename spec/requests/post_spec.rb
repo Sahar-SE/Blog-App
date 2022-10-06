@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
   before(:all) do
     @user = User.create(
-    name: 'Tom',
-    photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-    bio: 'Teacher from Mexico.'
+      name: 'Tom',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'Teacher from Mexico.'
     )
     @post = Post.create(user: @user, title: 'title', text: 'text')
   end

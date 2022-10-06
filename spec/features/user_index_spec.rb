@@ -17,5 +17,4 @@ RSpec.describe 'user_index', type: :feature do
     user = User.last
     expect(page).to have_content("Number of posts: #{user.postsCounter}")
   end
-
 end
