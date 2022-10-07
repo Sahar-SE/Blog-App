@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
 
   def create
     post = Post.find(params[:post_id])
-    author = post.author
+    author = post.user
     @comment = Comment.new(comment_params)
     @comment.post = post
-    @comment.author = current_user
+    @comment.user = current_user
 
     render :new unless @comment.save
 

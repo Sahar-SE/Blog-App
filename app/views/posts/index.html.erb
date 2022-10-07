@@ -16,8 +16,9 @@
     </div>
     <div class='comments_cnt'>
       <% post.recent_5_comments.each do |comment| %>
-        <p><%= User.find(comment.authorId).name %>: <%= comment.text %></p>
+        <p class='comment'><%= comment.user.name %>: <%= comment.text %></p>
       <% end %>
     </div>
   <% end %>
+   <button>Pagination</button>
 </div>
