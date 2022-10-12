@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # rubocop:disable ...
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  # rubocop:enable ...
   has_many :posts, foreign_key: 'user'
   has_many :likes, foreign_key: 'user'
   has_many :comments, foreign_key: 'user'
